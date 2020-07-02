@@ -6,12 +6,12 @@ module AjaxDatatablesRails
       module Order
 
         def orderable?
-          @view_column.fetch(:orderable, true)
+          @view_column&.fetch(:orderable, true)
         end
 
         # Add sort_field option to allow overriding of sort field
         def sort_field
-          @view_column.fetch(:sort_field, field)
+          @view_column&.fetch(:sort_field, field)
         end
 
         def sort_query
@@ -20,7 +20,7 @@ module AjaxDatatablesRails
 
         # Add option to sort null values last
         def nulls_last?
-          @view_column.fetch(:nulls_last, false)
+          @view_column&.fetch(:nulls_last, false)
         end
 
       end
